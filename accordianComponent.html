@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accordion</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <link rel="stylesheet" href="styles/accordianComponent.css">
+</head>
+<body>
+
+<div id="app">
+  <accordion :items="accordionItems">
+    <div v-for="item in accordionItems" :key="item.name" v-bind:slot="item.name" slot-scope="{ expanded }">
+      <p v-if="expanded">Content for {{ item.title }}</p>
+      <p v-else>Click to expand {{ item.title }}</p>
+    </div>
+  </accordion>
+</div>
+
+<script src="scripts/acccordianComponent.js"></script>
+</body>
+</html>
